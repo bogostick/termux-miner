@@ -13,8 +13,16 @@ prompt() {
     local prompt_text=$2
     local default_value=$3
 
-    read -p "$(echo -e "${CYAN}${prompt_text} (${default_value}): ${NC}")" input
-    eval "$var_name='${input:-$default_value}'"
+    # Ask the user for input
+    echo -e "${CYAN}${prompt_text} (${default_value}): ${NC}"
+    read input
+
+    # Use the default value if input is empty
+    if [ -z "$input" ]; then
+        eval "$var_name='$default_value'"
+    else
+        eval "$var_name='$input'"
+    fi
 }
 
 # Asking for variables
