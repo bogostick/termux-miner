@@ -1,14 +1,5 @@
 #!/bin/bash
-
-# Asking for variables directly with fallback values
-echo "Enter your username (guest):"
-read USERNAME
-USERNAME=${USERNAME:-guest}
-
-echo "Enter your age (18):"
-read AGE
-AGE=${AGE:-18}
-
-echo "Enter your city (Unknown):"
-read CITY
-CITY=${CITY:-Unknown}
+# Ask the user for their name
+echo Hello, who am I talking to?
+read varname
+echo It\'s nice to meet you $varname
